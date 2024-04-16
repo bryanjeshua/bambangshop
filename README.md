@@ -77,6 +77,12 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+1. Dalam design pattern Observer seperti yang dijelaskan dalam buku "Head First Design Patterns," Subscriber biasanya merupakan sebuah interface. Hal ini memungkinkan berbagai jenis subscriber untuk mengimplementasikan interface yang masing-masingnya menangani updates dengan caranya sendiri. Menggunakan interface akan mendorong fleksibilitas dan ekstensibilitas karena kita dapat menambahkan jenis subscriber baru tanpa mengubah mekanisme notifikasi.  Dalam kasus ini, karena semua subscriber diasumsikan berperilaku identik dan belum  ada kebutuhan untuk perilaku secara plimorfisme, maka satu struktur Subscriber mungkin cukup. 
+
+2. Pada kasus ini, menurut pendapat saya penggunaan Vec(list) tidak akan cukup. Hal ini karena suatu vec bisa saja menyebabkan id dari Subscriber berduplikasi. Padahal, id ini diharapkan mempunyai sifat yang unik. dengan menggunakan DashMap, kita bisa memastikan bahwa setiap key bersifat unik. Key yang berduplikat akan dioverwrite sehingga lebih efisien. Tak hanya itu, data juga terjaga konsistensinya.
+
+3. Menurut pendapat saya, penggunaan DashMap tetap krusial. Hal ini untuk memastikan thread safetynes. HashMap pada Rust tidaklah bersifat thread-safe bahkan sekalipun diterapkan dengan menggunakan Singleton Pattern. Dengan pattern tersebut, tetap saja ada kemungkinan data races yang disebabkan akses yang dilakukan secara konkuren dari beragam thread. Dengan menggunakan DashMap, kita memanfaatkan mekanisme internal locking dan memastikan hanya ada satu thread yang memodifikasi satu Subscriber entry pada satu waktu. Hal ini guna mencegah data corruption.
+
 
 #### Reflection Publisher-2
 
