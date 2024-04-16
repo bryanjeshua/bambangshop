@@ -86,8 +86,13 @@ This is the place for you to write reflections:
 
 #### Reflection Publisher-2
 - In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?
+Menurut pendapat saya, pemisahan Service dan Repository penting dilakukan. Hal ini bertujuan agar kode kita lebih clean dan mudah untuk diolah. Model sebaiknya hanya merepresentasikan data. Service sebaiknyya bertugas untuk mengelola alur bisnis. Sedangkan, repository bertugas untuk mengelolah dan mengambil data. Pemisahan ini membantu setiap bagiannya untuk melakukan tugasnya tanpa menginterfensi atau berdampak ke bagian yang lain. Pemisahan ini membantu dalam proses pembaruan dan mencegah bug yang tak diperlukan.
+
 - What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?
+Kalo kita hanya memakai Model saja, maka akan sangat berantakan. Misalnya, interaksi antara Program, Subscriber, dan Notification akan menjadi snagat kompleks. Susah sekali bagi kita untuk dapat mengolah data, menentukan hal yang dilakukan, dan menyimpannya. Kodenya juga akan jadi sangat panjang dan susah dipahami. 
+
 - Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+Postman adalah alat yang bisa membantu saya menguji software saya terutama di bagian saat program saya berinteraksi dengan program lain lewat api. Postman ini bagus karena sangat mudah digunakan dan kita dapat memulai testing dengan cepat. Kita juga bisa mengubah data yang diirimkan, melihat apa yang diterima, dan mengecek semua yang sedang terjadi, dan semua fitur tersebut rencanannya akan saya coba utilisasikan di proyek kelompok. Postman bagus untuk bisa memastikan software kita tetap jalan meski di beragam situasi.
 
 #### Reflection Publisher-3
 - Observer Pattern has two variations: Push model (publisher pushes data to subscribers) and Pull model (subscribers pull data from publisher). In this tutorial case, which variation of Observer Pattern that we use?
